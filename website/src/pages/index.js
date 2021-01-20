@@ -8,32 +8,31 @@ import styles from './styles.module.css';
 
 const features = [
   {
-    title: 'Easy to Use',
+    title: 'Wéi funktionéiert dat?',
     imageUrl: 'img/undraw_docusaurus_mountain.svg',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Ech erklären Zeil fir Zeil, wéi déi wichtegst Programmer vun 2e a 1re funktionéieren.
+        Ausserdeems gess du gewueren, ewéi d'Tools funktionéieren, déi s du fir d'Programméiere brauchs.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'A wat maachen ech lo domat?',
     imageUrl: 'img/undraw_docusaurus_tree.svg',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Ech léiere mat Python ze programméieren..mee wat genee kann ech lo domat maachen?
+        Ennert <code>Docs</code> gess de méi gewueren.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Meng eegen Erfaarungen a Projeten',
     imageUrl: 'img/undraw_docusaurus_react.svg',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        A mengem <code>Blog</code> schreiwen ech iwwert aktuell Projeten un deenen ech schaffen.
       </>
     ),
   },
@@ -63,8 +62,8 @@ function Home() {
       description="Description will go into a meta tag in <head />">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <h1 className="hero__title">{"Informatik am Lycée"}</h1>
+          <p className="hero__subtitle">{"Einfach a präzis erklärt."}</p>
           <div className={styles.buttons}>
             <Link
               className={clsx(

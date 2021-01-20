@@ -1,0 +1,162 @@
+---
+id: simulatiounen
+title: Simulatiounen
+sidebar_label: Simulatiounen (WIP)
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Printer Simulatioun
+
+[Klick hei fir de Fichier mat den Dateien ze downloaden](./assets/Printer-Simulatioun.zip)
+
+Fir d'Simulatioun auszeféieren muss de Package `matplotlib` installéiert sin. 
+
+<Tabs
+  defaultValue="simulatioun"
+  values={[
+    { label: 'Queue.py', value: 'queue', },
+    { label: 'Task.py', value: 'task', },
+    { label: 'Printer.py', value: 'printer', },
+    { label: 'Simul3.py', value: 'simulatioun', },
+  ]
+}>
+<TabItem value="queue">
+
+```python title="Queue.py"
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def empty(self):
+        return self.items == []
+
+    def enqueue(self, item):
+        self.items.insert(0,item)
+
+    def dequeue(self):
+        return self.items.pop()
+
+    def top(self):
+        return(self.items[-1])
+
+    def size(self):
+        return len(self.items)
+
+    def print(self):
+        print(self.items[:-1])
+```
+
+</TabItem>
+<TabItem value="task">
+
+```python title="task.py"
+import random
+
+class Task:
+    def __init__(self,temps):
+        self.timeStamp = temps
+        self.pages = random.randrange(1,21)
+
+    def getTimeStamp(self):
+        return self.timeStamp
+
+    def getNbrPages(self):
+        return self.pages
+
+    def taskWaitingTime(self, timeNow):
+        return timeNow - self.timeStamp
+
+```
+
+</TabItem>
+<TabItem value="printer">
+
+```python title="printer.py"
+from Task import *
+
+class Printer:
+    def __init__(self,nom,ppm):
+
+        self.printSpeed = ppm
+        self.currentTask = None
+        self.remainingTime = 0
+        self.name = nom
+
+    def busy(self):
+
+        if self.currentTask != None:
+            return True
+        else return False
+
+    def tick(self):
+        if self.currentTask != None:
+            self.remainingTime = self.remainingTime - 1
+            if self.remainingTime <= 0:
+                self.currentTask = None
+
+    def startNextJob(self, task):
+        self.currentTask = task
+        self.remainingTime = task.getNbrPages() * 60 / self.printSpeed
+```
+
+</TabItem>
+<TabItem value="simulatioun">
+
+```python title="Simul3.py"
+from Queue import *
+from Printer import *
+from Task import *
+
+
+def simulation(nbrSeconds, ppm):
+    def newPrintTask():
+        num = random.randrange(1, 120)
+        if num == 1:
+            return True
+        else:
+            return False
+
+    printer1 = Printer('Bureau', ppm)
+    pq = Queue()
+    waitingTime = []
+
+    for second in range(nbrSeconds):
+        if newPrintTask():
+            task = Task(second)
+            pq.enqueue(task)
+        if (not printer1.busy()) and (not pq.empty()):
+            newTask = pq.top()
+            pq.dequeue()
+            waitingTime.append(newTask.taskWaitingTime(second))
+            printer1.startNextJob(newTask)
+
+        printer1.tick()
+
+    return sum(waitingTime) / len(waitingTime)
+
+
+
+x = []
+y = []
+nbrSimulations = 10
+for ppm in range(6, 20):
+    sumWaitingTime = 0
+    for i in range(nbrSimulations):
+        sumWaitingTime = sumWaitingTime + simulation(28800, ppm)
+    x.append(ppm)
+    y.append(sumWaitingTime / nbrSimulations)
+
+import matplotlib.pyplot as plt
+
+plt.scatter(x, y)
+plt.title('Simulation du temps d\'attente lors d\'impressions')
+plt.xlabel('Vitesse d\'impression de l\'imprimante en ppm')
+plt.ylabel('Temps d\'attente en secondes')
+plt.show()
+```
+
+
+</TabItem>
+</Tabs>

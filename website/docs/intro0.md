@@ -1,8 +1,7 @@
 ---
-id: doc1
+id: intro0
 title: Style Guide
 sidebar_label: Style Guide
-slug: /
 ---
 
 You can write content using [GitHub-flavored Markdown syntax](https://github.github.com/gfm/).
@@ -42,16 +41,18 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 ## Lists
 
 1. First ordered list item
-1. Another item
+
+2. Another item
+   
    - Unordered sub-list.
-1. Actual numbers don't matter, just that it's a number
+
+3. Actual numbers don't matter, just that it's a number
+   
    1. Ordered sub-list
-1. And another item.
 
+4. And another item.
 * Unordered list can use asterisks
-
 - Or minuses
-
 + Or pluses
 
 ---
@@ -102,8 +103,46 @@ alert(s);
 ```
 
 ```python
-s = "Python syntax highlighting"
-print(s)
+from Queue import *
+from Printer import *
+from Task import *
+
+def simulation(nbrSeconds,ppm):
+
+def newPrintTask():
+    sumWaitingTime = 0 for i in range(nbrSimulations):
+        num = random.randrange(1,120)
+        if num==1:
+            return True
+        else return False
+
+    printer1 = Printer('Bureau',ppm)
+    pq = Queue()
+    waitingTime = []
+
+for second in range(nbrSeconds):
+    if newPrintTask():
+        task = Task(second)
+        pq.enqueue(task)
+    if (not printer1.busy()) and (not pq.empty()):
+        newTask = pq.top()
+        pq.dequeue()
+        waitingTime.append(newTask.taskWaitingTime(second))
+        printer1.startNextJob(newTask)
+
+    printer1.tick()
+
+return sum(waitingTime)/len(waitingTime)
+
+x=[]
+y=[]
+nbrSimulations = 10
+for ppm in range(6,20):
+    sumWaitingTime = 0
+    for i in range(nbrSimulations):
+    sumWaitingTime = sumWaitingTime + simulation(28800,ppm)
+    x.append(ppm)
+    y.append(sumWaitingTime/nbrSimulations)
 ```
 
 ```
@@ -111,7 +150,7 @@ No language indicated, so no syntax highlighting.
 But let's throw in a <b>tag</b>.
 ```
 
-```js {2}
+```js
 function highlightMe() {
   console.log('This line can be highlighted!');
 }
@@ -123,11 +162,11 @@ function highlightMe() {
 
 Colons can be used to align columns.
 
-| Tables        |      Are      |   Cool |
-| ------------- | :-----------: | -----: |
+| Tables        | Are           | Cool   |
+| ------------- |:-------------:| ------:|
 | col 3 is      | right-aligned | \$1600 |
-| col 2 is      |   centered    |   \$12 |
-| zebra stripes |   are neat    |    \$1 |
+| col 2 is      | centered      | \$12   |
+| zebra stripes | are neat      | \$1    |
 
 There must be at least 3 dashes separating each header cell. The outer pipes (|) are optional, and you don't need to make the raw Markdown line up prettily. You can also use inline Markdown.
 
@@ -154,7 +193,7 @@ Quote break.
   <dt>Definition list</dt>
   <dd>Is something people use sometimes.</dd>
 
-  <dt>Markdown in HTML</dt>
+<dt>Markdown in HTML</dt>
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
 </dl>
 
