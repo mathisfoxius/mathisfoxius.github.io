@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'My Site',
+  title: 'Mathis Foxius',
   tagline: 'The tagline of my site',
   url: 'https://mathisfoxius.github.io',
   baseUrl: '/',
@@ -10,7 +10,7 @@ module.exports = {
   projectName: 'mathisfoxius.github.io', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'My Site',
+      title: 'Mathis Foxius',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
