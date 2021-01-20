@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Mathis Foxius',
-  tagline: 'The tagline of my site',
+  tagline: 'The tagline',
   url: 'https://mathisfoxius.github.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
