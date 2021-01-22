@@ -8,34 +8,32 @@ import styles from './styles.module.css';
 
 const features = [
   {
-    title: 'Wéi funktionéiert dat?',
-    imageUrl: 'img/undraw_docusaurus_mountain.svg',
+    title: 'Wat hun ech welles ze maachen?',
+    imageUrl: 'img/robot_logo.svg',
     description: (
       <>
-        Ech erklären Zeil fir Zeil, wéi déi wichtegst Programmer vun 2e a 1re funktionéieren.
-        Ausserdeems gess du gewueren, ewéi d'Tools funktionéieren, déi s du fir d'Programméiere brauchs.
+        Ee klenge Blog + Eng Sammlung/Dokumentation vu Beispiller zu <code>Python</code> op der 2e a 1re B.
       </>
     ),
   },
   {
-    title: 'A wat maachen ech lo domat?',
-    imageUrl: 'img/undraw_docusaurus_tree.svg',
+    title: '',
+    imageUrl: 'img/robot_logo.svg',
     description: (
       <>
-        Ech léiere mat Python ze programméieren..mee wat genee kann ech lo domat maachen?
-        Ennert <code>Docs</code> gess de méi gewueren.
+        
       </>
     ),
   },
   {
-    title: 'Meng eegen Erfaarungen a Projeten',
-    imageUrl: 'img/undraw_docusaurus_react.svg',
+    title: '',
+    imageUrl: 'img/robot_upsidedown.svg',
     description: (
       <>
-        A mengem <code>Blog</code> schreiwen ech iwwert aktuell Projeten un deenen ech schaffen.
       </>
     ),
   },
+  
 ];
 
 function Feature({imageUrl, title, description}) {
@@ -63,17 +61,8 @@ function Home() {
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{"Under Construction"}</h1>
-          <p className="hero__subtitle">{"Einfach a präzis erklärt."}</p>
-          <div className={styles.buttons}>
-            <Link
-              className={clsx(
-                'button button--outline button--secondary button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('docs/')}>
-              Get Started
-            </Link>
-          </div>
+          <p className="hero__subtitle">{"Launching soon..."}</p>
+          
         </div>
       </header>
       <main>

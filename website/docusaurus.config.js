@@ -18,17 +18,8 @@ module.exports = {
       title: 'Mathis Foxius',
       logo: {
         alt: 'Mathis Foxius Logo',
-        src: 'img/logo.svg',
-      },
-      items: [
-        {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docs',
-          position: 'left',
-        },
-        {to: 'blog', label: 'Blog', position: 'left'},
-      ],
+        src: 'img/robot_logo.svg',
+      }
     },
     footer: {
       style: 'dark',
